@@ -1,7 +1,9 @@
 """Unit tests for input validation functionality."""
 
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from calculator.exceptions import InvalidInputError
 from calculator.validation import InputValidator
 
@@ -54,7 +56,7 @@ class TestInputValidator:
 
     def test_validate_number_overflow(self):
         """Test overflow handling."""
-        with patch('builtins.int', side_effect=OverflowError("overflow")):
+        with patch("builtins.int", side_effect=OverflowError("overflow")):
             with pytest.raises(InvalidInputError):
                 self.validator.validate_number("999")
 
@@ -111,7 +113,3 @@ class TestInputValidator:
             self.validator.parse_calculation_input("+ 3")
         with pytest.raises(InvalidInputError):
             self.validator.parse_calculation_input("abc + 3")
-
-
-
-

@@ -2,10 +2,17 @@
 Main Calculator class that manages operations and performs calculations.
 """
 
-from typing import Dict, Type, Union
+from typing import Dict
 
 from .exceptions import InvalidOperationError
-from .operations import Addition, Division, Multiplication, Number, Operation, Subtraction
+from .operations import (
+    Addition,
+    Division,
+    Multiplication,
+    Number,
+    Operation,
+    Subtraction,
+)
 
 
 class Calculator:
@@ -19,11 +26,13 @@ class Calculator:
     def _register_operations(self) -> None:
         """Register all available operations with their symbols."""
         operations = [Addition(), Subtraction(), Multiplication(), Division()]
-        
+
         for operation in operations:
             self._operations[operation.get_symbol()] = operation
 
-    def calculate(self, first_number: Number, operation_symbol: str, second_number: Number) -> Number:
+    def calculate(
+        self, first_number: Number, operation_symbol: str, second_number: Number
+    ) -> Number:
         """
         Perform calculation with given numbers and operation.
 

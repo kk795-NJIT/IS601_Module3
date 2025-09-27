@@ -5,7 +5,11 @@ Unit tests for the main Calculator class.
 import pytest
 
 from calculator.calculator import Calculator
-from calculator.exceptions import DivisionByZeroError, InvalidOperationError, OverflowError
+from calculator.exceptions import (
+    DivisionByZeroError,
+    InvalidOperationError,
+    OverflowError,
+)
 
 
 class TestCalculator:
@@ -24,7 +28,12 @@ class TestCalculator:
     def test_get_available_operations(self):
         """Test getting available operations."""
         operations = self.calculator.get_available_operations()
-        expected_operations = {"+": "addition", "-": "subtraction", "*": "multiplication", "/": "division"}
+        expected_operations = {
+            "+": "addition",
+            "-": "subtraction",
+            "*": "multiplication",
+            "/": "division",
+        }
         assert operations == expected_operations
 
     @pytest.mark.parametrize(
@@ -64,7 +73,9 @@ class TestCalculator:
 
     def test_calculate_division_by_zero(self):
         """Test division by zero handling."""
-        with pytest.raises(DivisionByZeroError, match="Division by zero is not allowed"):
+        with pytest.raises(
+            DivisionByZeroError, match="Division by zero is not allowed"
+        ):
             self.calculator.calculate(10, "/", 0)
 
     @pytest.mark.parametrize(
@@ -77,7 +88,20 @@ class TestCalculator:
 
     @pytest.mark.parametrize(
         "operation",
-        ["@", "#", "%", "^", "&", "add", "subtract", "multiply", "divide", "", "++", "--"],
+        [
+            "@",
+            "#",
+            "%",
+            "^",
+            "&",
+            "add",
+            "subtract",
+            "multiply",
+            "divide",
+            "",
+            "++",
+            "--",
+        ],
     )
     def test_is_valid_operation_invalid(self, operation):
         """Test validation of invalid operations."""
@@ -86,7 +110,7 @@ class TestCalculator:
     def test_calculate_overflow_handling(self):
         """Test overflow handling in calculations."""
         large_number = 1e200
-        
+
         with pytest.raises(OverflowError):
             self.calculator.calculate(large_number, "*", large_number)
 
@@ -95,11 +119,11 @@ class TestCalculator:
         result1 = self.calculator.calculate(5, "+", 3)
         result2 = self.calculator.calculate(10, "*", 2)
         result3 = self.calculator.calculate(15, "/", 3)
-        
+
         assert result1 == 8
         assert result2 == 20
         assert result3 == 5.0
-        
+
         operations = self.calculator.get_available_operations()
         assert len(operations) == 4
 

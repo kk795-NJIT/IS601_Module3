@@ -2,8 +2,6 @@
 Unit tests for custom exceptions.
 """
 
-import pytest
-
 from calculator.exceptions import (
     CalculatorError,
     DivisionByZeroError,
@@ -57,7 +55,7 @@ class TestCalculatorExceptions:
             DivisionByZeroError("test"),
             OverflowError("test"),
         ]
-        
+
         for error in errors:
             assert isinstance(error, Exception)
             assert isinstance(error, CalculatorError)

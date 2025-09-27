@@ -13,7 +13,7 @@ def main():
     except Exception as e:
         print(f"Failed to start calculator: {e}")
         return 1
-    
+
     return 0
 
 

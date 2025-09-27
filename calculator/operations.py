@@ -117,7 +117,7 @@ class Division(Operation):
         """Divide first number by second."""
         if b == 0:
             raise DivisionByZeroError("Division by zero is not allowed")
-        
+
         try:
             result = a / b
             # Check for overflow in extreme cases
