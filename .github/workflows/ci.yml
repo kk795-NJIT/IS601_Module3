@@ -43,11 +43,11 @@ jobs:
     
     - name: Test with pytest
       run: |
-        python -m pytest tests/ -v --cov=calculator --cov-report=xml --cov-report=term-missing
+        python -m pytest tests/ -v --cov=calculator --cov-report=xml --cov-report=term-missing --cov-fail-under=100
     
-    - name: Enforce 95% test coverage
+    - name: Enforce 100% test coverage
       run: |
-        python -m pytest tests/ --cov=calculator --cov-fail-under=95
+        python -m pytest tests/ --cov=calculator --cov-fail-under=100
     
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3

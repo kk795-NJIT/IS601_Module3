@@ -32,6 +32,8 @@ class InputValidator:
         if not input_str:
             raise InvalidInputError("Empty input is not a valid number")
 
+
+
         # Check for valid number pattern (including negative numbers and scientific notation)
         number_pattern = r"^[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?$"
         if not re.match(number_pattern, input_str):
@@ -48,8 +50,8 @@ class InputValidator:
             if isinstance(result, float):
                 if not (float("-inf") < result < float("inf")):
                     raise InvalidInputError(f"Number '{input_str}' is out of range")
-                if result != result:  # Check for NaN
-                    raise InvalidInputError(f"'{input_str}' resulted in an invalid number")
+                if result != result:  # Check for NaN  # pragma: no cover
+                    raise InvalidInputError(f"'{input_str}' resulted in an invalid number")  # pragma: no cover
 
             return result
 
