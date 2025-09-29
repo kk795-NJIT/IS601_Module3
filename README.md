@@ -1,10 +1,5 @@
 # Python Calculator
 
-[![Python Calculator CI/CD](https://github.com/yourusername/python-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/python-calculator/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/yourusername/python-calculator/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/python-calculator)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
 A robust command-line calculator implemented in Python using best practices, comprehensive testing, and continuous integration.
 
 ## Features
